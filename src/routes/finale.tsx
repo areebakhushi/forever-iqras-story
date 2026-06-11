@@ -63,5 +63,5 @@ function Finale() {
         </Reveal>
       </div>
     </SceneLayout>
-  ),
-});
+  );
+}
