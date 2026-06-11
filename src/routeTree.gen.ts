@@ -9,8 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SurprisesRouteImport } from './routes/surprises'
+import { Route as StoryRouteImport } from './routes/story'
+import { Route as ProposalRouteImport } from './routes/proposal'
+import { Route as PlayingRouteImport } from './routes/playing'
+import { Route as NanasHouseRouteImport } from './routes/nanas-house'
+import { Route as MemoryUniverseRouteImport } from './routes/memory-universe'
+import { Route as HugsRouteImport } from './routes/hugs'
+import { Route as GrowingUpRouteImport } from './routes/growing-up'
+import { Route as FutureRouteImport } from './routes/future'
+import { Route as FinaleRouteImport } from './routes/finale'
+import { Route as BirthdaysRouteImport } from './routes/birthdays'
+import { Route as BeginningRouteImport } from './routes/beginning'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SurprisesRoute = SurprisesRouteImport.update({
+  id: '/surprises',
+  path: '/surprises',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoryRoute = StoryRouteImport.update({
+  id: '/story',
+  path: '/story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProposalRoute = ProposalRouteImport.update({
+  id: '/proposal',
+  path: '/proposal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlayingRoute = PlayingRouteImport.update({
+  id: '/playing',
+  path: '/playing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NanasHouseRoute = NanasHouseRouteImport.update({
+  id: '/nanas-house',
+  path: '/nanas-house',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MemoryUniverseRoute = MemoryUniverseRouteImport.update({
+  id: '/memory-universe',
+  path: '/memory-universe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HugsRoute = HugsRouteImport.update({
+  id: '/hugs',
+  path: '/hugs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrowingUpRoute = GrowingUpRouteImport.update({
+  id: '/growing-up',
+  path: '/growing-up',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FutureRoute = FutureRouteImport.update({
+  id: '/future',
+  path: '/future',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinaleRoute = FinaleRouteImport.update({
+  id: '/finale',
+  path: '/finale',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BirthdaysRoute = BirthdaysRouteImport.update({
+  id: '/birthdays',
+  path: '/birthdays',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeginningRoute = BeginningRouteImport.update({
+  id: '/beginning',
+  path: '/beginning',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +91,200 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/beginning': typeof BeginningRoute
+  '/birthdays': typeof BirthdaysRoute
+  '/finale': typeof FinaleRoute
+  '/future': typeof FutureRoute
+  '/growing-up': typeof GrowingUpRoute
+  '/hugs': typeof HugsRoute
+  '/memory-universe': typeof MemoryUniverseRoute
+  '/nanas-house': typeof NanasHouseRoute
+  '/playing': typeof PlayingRoute
+  '/proposal': typeof ProposalRoute
+  '/story': typeof StoryRoute
+  '/surprises': typeof SurprisesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/beginning': typeof BeginningRoute
+  '/birthdays': typeof BirthdaysRoute
+  '/finale': typeof FinaleRoute
+  '/future': typeof FutureRoute
+  '/growing-up': typeof GrowingUpRoute
+  '/hugs': typeof HugsRoute
+  '/memory-universe': typeof MemoryUniverseRoute
+  '/nanas-house': typeof NanasHouseRoute
+  '/playing': typeof PlayingRoute
+  '/proposal': typeof ProposalRoute
+  '/story': typeof StoryRoute
+  '/surprises': typeof SurprisesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/beginning': typeof BeginningRoute
+  '/birthdays': typeof BirthdaysRoute
+  '/finale': typeof FinaleRoute
+  '/future': typeof FutureRoute
+  '/growing-up': typeof GrowingUpRoute
+  '/hugs': typeof HugsRoute
+  '/memory-universe': typeof MemoryUniverseRoute
+  '/nanas-house': typeof NanasHouseRoute
+  '/playing': typeof PlayingRoute
+  '/proposal': typeof ProposalRoute
+  '/story': typeof StoryRoute
+  '/surprises': typeof SurprisesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/beginning'
+    | '/birthdays'
+    | '/finale'
+    | '/future'
+    | '/growing-up'
+    | '/hugs'
+    | '/memory-universe'
+    | '/nanas-house'
+    | '/playing'
+    | '/proposal'
+    | '/story'
+    | '/surprises'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/beginning'
+    | '/birthdays'
+    | '/finale'
+    | '/future'
+    | '/growing-up'
+    | '/hugs'
+    | '/memory-universe'
+    | '/nanas-house'
+    | '/playing'
+    | '/proposal'
+    | '/story'
+    | '/surprises'
+  id:
+    | '__root__'
+    | '/'
+    | '/beginning'
+    | '/birthdays'
+    | '/finale'
+    | '/future'
+    | '/growing-up'
+    | '/hugs'
+    | '/memory-universe'
+    | '/nanas-house'
+    | '/playing'
+    | '/proposal'
+    | '/story'
+    | '/surprises'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeginningRoute: typeof BeginningRoute
+  BirthdaysRoute: typeof BirthdaysRoute
+  FinaleRoute: typeof FinaleRoute
+  FutureRoute: typeof FutureRoute
+  GrowingUpRoute: typeof GrowingUpRoute
+  HugsRoute: typeof HugsRoute
+  MemoryUniverseRoute: typeof MemoryUniverseRoute
+  NanasHouseRoute: typeof NanasHouseRoute
+  PlayingRoute: typeof PlayingRoute
+  ProposalRoute: typeof ProposalRoute
+  StoryRoute: typeof StoryRoute
+  SurprisesRoute: typeof SurprisesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/surprises': {
+      id: '/surprises'
+      path: '/surprises'
+      fullPath: '/surprises'
+      preLoaderRoute: typeof SurprisesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/story': {
+      id: '/story'
+      path: '/story'
+      fullPath: '/story'
+      preLoaderRoute: typeof StoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/proposal': {
+      id: '/proposal'
+      path: '/proposal'
+      fullPath: '/proposal'
+      preLoaderRoute: typeof ProposalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playing': {
+      id: '/playing'
+      path: '/playing'
+      fullPath: '/playing'
+      preLoaderRoute: typeof PlayingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nanas-house': {
+      id: '/nanas-house'
+      path: '/nanas-house'
+      fullPath: '/nanas-house'
+      preLoaderRoute: typeof NanasHouseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/memory-universe': {
+      id: '/memory-universe'
+      path: '/memory-universe'
+      fullPath: '/memory-universe'
+      preLoaderRoute: typeof MemoryUniverseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hugs': {
+      id: '/hugs'
+      path: '/hugs'
+      fullPath: '/hugs'
+      preLoaderRoute: typeof HugsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/growing-up': {
+      id: '/growing-up'
+      path: '/growing-up'
+      fullPath: '/growing-up'
+      preLoaderRoute: typeof GrowingUpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/future': {
+      id: '/future'
+      path: '/future'
+      fullPath: '/future'
+      preLoaderRoute: typeof FutureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finale': {
+      id: '/finale'
+      path: '/finale'
+      fullPath: '/finale'
+      preLoaderRoute: typeof FinaleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/birthdays': {
+      id: '/birthdays'
+      path: '/birthdays'
+      fullPath: '/birthdays'
+      preLoaderRoute: typeof BirthdaysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beginning': {
+      id: '/beginning'
+      path: '/beginning'
+      fullPath: '/beginning'
+      preLoaderRoute: typeof BeginningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +297,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeginningRoute: BeginningRoute,
+  BirthdaysRoute: BirthdaysRoute,
+  FinaleRoute: FinaleRoute,
+  FutureRoute: FutureRoute,
+  GrowingUpRoute: GrowingUpRoute,
+  HugsRoute: HugsRoute,
+  MemoryUniverseRoute: MemoryUniverseRoute,
+  NanasHouseRoute: NanasHouseRoute,
+  PlayingRoute: PlayingRoute,
+  ProposalRoute: ProposalRoute,
+  StoryRoute: StoryRoute,
+  SurprisesRoute: SurprisesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
