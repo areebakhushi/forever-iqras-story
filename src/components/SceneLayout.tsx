@@ -10,7 +10,7 @@ const TABS = [
   { to: "/beginning", label: "Beginning" },
   { to: "/nanas-house", label: "Nana's House" },
   { to: "/playing", label: "Laughs" },
-  { to: "/birthdays", label: "Birthdays" },
+  { to: "/birthdays", label: "10 Years" },
   { to: "/surprises", label: "Surprises" },
   { to: "/hugs", label: "Hugs" },
   { to: "/proposal", label: "Proposal" },
