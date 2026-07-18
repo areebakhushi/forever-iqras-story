@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SceneLayout, PageTitle, SceneCard, Reveal } from "@/components/SceneLayout";
+import { PhotoFrame } from "@/components/Photo";
+import { photos } from "@/lib/photos";
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/birthdays")({
@@ -23,6 +25,10 @@ export const Route = createFileRoute("/birthdays")({
             ))}
           </div>
         </Reveal>
+        <div className="flex flex-wrap gap-6 justify-center my-10">
+          <PhotoFrame src={photos.cafe} alt="birthday together" rotate={-4} caption="your day, our joy" className="w-72" />
+          <PhotoFrame src={photos.sunset} alt="celebration" rotate={3} caption="22 — my favourite number" className="w-72" />
+        </div>
         <SceneCard title="Cakes & candles" quote="Every wish I made — somehow you were already in it." emoji="🕯️" />
         <SceneCard title="Surprise faces" quote="Your reactions were the gift I kept rewatching in my head." emoji="🎁" />
         <SceneCard title="Today, your 22nd" quote="Happy birthday meri jaan. The world is luckier with you in it." emoji="💖" />

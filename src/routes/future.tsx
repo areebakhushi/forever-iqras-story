@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { SceneLayout, PageTitle, SceneCard, Reveal } from "@/components/SceneLayout";
+import { PhotoHero, PhotoFrame } from "@/components/Photo";
+import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/future")({
   head: () => ({ meta: [{ title: "Our Future 🌟 — Forever Connected" }] }),
@@ -8,6 +10,7 @@ export const Route = createFileRoute("/future")({
     <SceneLayout particles="hearts">
       <PageTitle kicker="even if life separates us" title="Our Future 🌟" subtitle="Two paths. One heart. Forever connected." />
       <div className="max-w-4xl mx-auto">
+        <PhotoHero src={photos.sunset} alt="Sunset together" caption="every sunset, still us" />
         <Reveal>
           <div className="glass-rose rounded-3xl p-10 md:p-14 my-8 relative overflow-hidden">
             <div className="flex justify-between items-center relative h-32">
@@ -28,6 +31,10 @@ export const Route = createFileRoute("/future")({
             </p>
           </div>
         </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center my-8">
+          <PhotoFrame src={photos.beachDance} alt="dancing at sunset" rotate={-3} caption="dancing into forever" className="w-full" />
+          <PhotoFrame src={photos.beachTwirl} alt="beach silhouettes" rotate={3} caption="wherever, whenever" className="w-full" />
+        </div>
         <SceneCard title="Different roads" quote="Careers, cities, dreams. New chapters we'll each write." emoji="🛤️" />
         <SceneCard title="One unbreakable thread" quote="Distance cannot break what the heart has built." emoji="🪡" />
         <SceneCard title="A promise" quote="No matter where we go — I'm only ever a heartbeat away." emoji="🤞" />
