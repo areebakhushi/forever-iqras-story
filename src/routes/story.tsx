@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { SceneLayout, PageTitle, SceneCard, Reveal } from "@/components/SceneLayout";
+import { PhotoFrame } from "@/components/Photo";
+import { photos, ALL_PHOTOS } from "@/lib/photos";
 
 export const Route = createFileRoute("/story")({
   head: () => ({
@@ -66,16 +68,28 @@ function Story() {
         <div className="space-y-6">
           {YEARS.map((y, i) => (
             <Reveal key={y.age} delay={i * 0.05}>
-              <div className="flex gap-6 items-center glass rounded-2xl p-6 hover:scale-[1.02] transition-transform">
+              <div className="flex gap-4 md:gap-6 items-center glass rounded-2xl p-4 md:p-6 hover:scale-[1.02] transition-transform">
                 <div className="shrink-0">
-                  <div className="w-20 h-20 rounded-full bg-aurora flex items-center justify-center font-display text-3xl font-bold text-primary-foreground shadow-lg">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-aurora flex items-center justify-center font-display text-2xl md:text-3xl font-bold text-primary-foreground shadow-lg">
                     {y.age}
                   </div>
                 </div>
-                <p className="font-script text-2xl md:text-3xl text-foreground/90 italic">{y.moment}</p>
+                <p className="font-script text-xl md:text-3xl text-foreground/90 italic flex-1">{y.moment}</p>
+                <img
+                  src={ALL_PHOTOS[i % ALL_PHOTOS.length]}
+                  alt="us"
+                  loading="lazy"
+                  className="hidden md:block w-24 h-24 object-cover rounded-xl shadow-lg shrink-0"
+                  style={{ transform: i % 2 === 0 ? "rotate(-3deg)" : "rotate(3deg)" }}
+                />
               </div>
             </Reveal>
           ))}
+        </div>
+        <div className="flex flex-wrap gap-6 justify-center my-12">
+          <PhotoFrame src={photos.cafe} alt="us" rotate={-4} caption="12" className="w-56" />
+          <PhotoFrame src={photos.field} alt="us" rotate={3} caption="17" className="w-56" />
+          <PhotoFrame src={photos.sunset} alt="us" rotate={-2} caption="22" className="w-56" />
         </div>
         <SceneCard
           title="We grew up together"

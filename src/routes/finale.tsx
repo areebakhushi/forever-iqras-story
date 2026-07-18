@@ -32,6 +32,10 @@ function StarName() {
 function Finale() {
   return (
     <SceneLayout particles="mixed">
+      <div className="fixed inset-0 -z-10">
+        <img src={photos.stars} alt="" aria-hidden className="w-full h-full object-cover opacity-55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/40 to-background" />
+      </div>
       <PageTitle kicker="our final scene" title="Forever Us ❤" subtitle="Night sky. Soft piano. A letter that never ends." />
       <div className="max-w-3xl mx-auto">
         <StarName />
