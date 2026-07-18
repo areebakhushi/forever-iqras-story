@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SceneLayout, PageTitle, Reveal } from "@/components/SceneLayout";
+import { photos, ALL_PHOTOS } from "@/lib/photos";
 
 export const Route = createFileRoute("/memory-universe")({
   head: () => ({ meta: [{ title: "Our World — Memory Universe ✨" }] }),
@@ -37,6 +38,8 @@ function Universe() {
     <SceneLayout particles="stars">
       <PageTitle kicker="ten years, infinite emotions" title="Our World ✨" subtitle="Every star is a memory. Tap one to remember." />
       <div className="relative max-w-5xl mx-auto h-[560px] glass-rose rounded-3xl overflow-hidden">
+        <img src={photos.stars} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/60" />
         {MEMORIES.map((m, i) => {
           const top = (i * 37) % 90 + 5;
           const left = (i * 53) % 90 + 5;
@@ -77,6 +80,14 @@ function Universe() {
           "Ten years of memories… infinite emotions…"
         </p>
       </Reveal>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-5xl mx-auto mt-12">
+        {ALL_PHOTOS.map((src, i) => (
+          <div key={i} className="relative aspect-square overflow-hidden rounded-2xl group">
+            <img src={src} alt="memory" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+          </div>
+        ))}
+      </div>
     </SceneLayout>
   );
 }

@@ -3,6 +3,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SceneLayout, PageTitle, Reveal } from "@/components/SceneLayout";
 import { Heart } from "lucide-react";
+import { PhotoHero } from "@/components/Photo";
+import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/proposal")({
   head: () => ({ meta: [{ title: "Friendship Proposal 💖 — For Iqra" }] }),
@@ -38,6 +40,7 @@ function Proposal() {
     <SceneLayout particles="butterflies">
       <PageTitle kicker="my dearest" title="Friendship Proposal 💖" subtitle="Will you stay my forever person?" />
       <div className="max-w-3xl mx-auto">
+        <PhotoHero src={photos.hands} alt="Our hands together" caption="my hand, in yours, always" />
         <Reveal>
           <div className="glass-rose rounded-3xl p-10 md:p-14 relative overflow-hidden">
             <div className="flex justify-center items-end gap-8 mb-8">

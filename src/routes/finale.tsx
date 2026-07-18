@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { SceneLayout, PageTitle, Reveal } from "@/components/SceneLayout";
 import { Heart } from "lucide-react";
+import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/finale")({
   head: () => ({ meta: [{ title: "Forever Us ❤ — A Final Letter For Iqra" }] }),
