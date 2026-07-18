@@ -5,6 +5,7 @@ import { Gift, Heart, Sparkles } from "lucide-react";
 import { Particles, Stars } from "@/components/Particles";
 import { Nav } from "@/components/SceneLayout";
 import { Link } from "@tanstack/react-router";
+import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,6 +53,10 @@ function Home() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
+      <div className="fixed inset-0 -z-10">
+        <img src={photos.stars} alt="" aria-hidden className="w-full h-full object-cover opacity-45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background" />
+      </div>
       <Stars count={140} />
       <Particles variant="mixed" count={36} />
       <Nav />
@@ -152,10 +157,32 @@ function Home() {
               </motion.div>
 
               <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.8, duration: 1.2 }}
+                className="mt-12 grid grid-cols-3 gap-3 md:gap-5 max-w-2xl mx-auto"
+              >
+                {[
+                  { src: photos.cafe, r: -4 },
+                  { src: photos.hug, r: 2 },
+                  { src: photos.sunset, r: -2 },
+                ].map((p, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.06, rotate: 0 }}
+                    style={{ rotate: `${p.r}deg` }}
+                    className="p-2 bg-white/90 rounded-sm shadow-2xl"
+                  >
+                    <img src={p.src} alt="us" className="w-full aspect-[3/4] object-cover" />
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 3, duration: 1 }}
-                className="mt-12 flex flex-wrap gap-3 justify-center"
+                transition={{ delay: 3.2, duration: 1 }}
+                className="mt-10 flex flex-wrap gap-3 justify-center"
               >
                 <Link to="/story" className="px-6 py-3 rounded-full bg-aurora text-primary-foreground font-medium shadow-lg hover:scale-105 transition-transform">
                   Begin Our Story →
