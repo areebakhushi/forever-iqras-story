@@ -37,7 +37,7 @@ function Proposal() {
   const [said, setSaid] = useState(false);
 
   return (
-    <SceneLayout particles="butterflies">
+    <SceneLayout particles="butterflies" bg={photos.rosePropose}>
       <PageTitle kicker="my dearest" title="Friendship Proposal 💖" subtitle="Will you stay my forever person?" />
       <div className="max-w-3xl mx-auto">
         <PhotoHero src={photos.rosePropose} alt="Proposing with a rose" caption="a rose, on one knee, for you" />

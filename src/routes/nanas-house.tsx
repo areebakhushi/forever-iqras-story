@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export const Route = createFileRoute("/nanas-house")({
   head: () => ({ meta: [{ title: "Nana's House — Our Universe 🏡" }] }),
   component: () => (
-    <SceneLayout particles="hearts">
+    <SceneLayout particles="hearts" bg={photos.field}>
       <PageTitle kicker="our entire universe" title="Nana's House 🏡" subtitle="Not just a place — the whole world we grew up in." />
       <div className="max-w-4xl mx-auto space-y-6">
         <Reveal>

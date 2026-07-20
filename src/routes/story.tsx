@@ -57,7 +57,7 @@ function AgeCounter() {
 
 function Story() {
   return (
-    <SceneLayout particles="mixed">
+    <SceneLayout particles="mixed" bg={photos.cherryTouch}>
       <PageTitle
         kicker="our friendship story"
         title="From 12 to 22"

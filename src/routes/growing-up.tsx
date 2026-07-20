@@ -7,7 +7,7 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/growing-up")({
   head: () => ({ meta: [{ title: "Growing Up Together ⏳" }] }),
   component: () => (
-    <SceneLayout particles="sparkles">
+    <SceneLayout particles="sparkles" bg={photos.hands}>
       <PageTitle kicker="time passed" title="Growing Up Together ⏳" subtitle="12 to 22 — our bond only got stronger." />
       <div className="max-w-4xl mx-auto">
         <PhotoHero src={photos.field} alt="Walking through the field" caption="two paths, one journey" />

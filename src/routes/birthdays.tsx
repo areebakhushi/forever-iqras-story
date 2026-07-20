@@ -23,7 +23,7 @@ const GALLERY = [
 
 function TenYears() {
   return (
-    <SceneLayout particles="hearts">
+    <SceneLayout particles="hearts" bg={photos.sparklerHug}>
       {/* Hero background */}
       <div className="absolute inset-0 -z-0 overflow-hidden">
         <img src={photos.cherry} alt="" aria-hidden className="w-full h-[85vh] object-cover" style={{ opacity: 0.35 }} />
