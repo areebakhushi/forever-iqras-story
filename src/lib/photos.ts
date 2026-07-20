@@ -15,6 +15,13 @@ import pinktee from "@/assets/pinktee.jpg.asset.json";
 import sweaters from "@/assets/sweaters.jpg.asset.json";
 import kiss from "@/assets/kiss.jpg.asset.json";
 import rose from "@/assets/rose.jpg.asset.json";
+import sparklerHug from "@/assets/sparkler-hug.jpg.asset.json";
+import pinkpair from "@/assets/pinkpair.jpg.asset.json";
+import rosePropose from "@/assets/rose-propose.jpg.asset.json";
+import sparklers from "@/assets/sparklers.jpg.asset.json";
+import blueSky from "@/assets/blue-sky.jpg.asset.json";
+import cherryTouch from "@/assets/cherry-touch.jpg.asset.json";
+import umbrellaKneel from "@/assets/umbrella-kneel.jpg.asset.json";
 
 export const photos = {
   cafe: cafe.url,
@@ -34,24 +41,13 @@ export const photos = {
   sweaters: sweaters.url,
   kiss: kiss.url,
   rose: rose.url,
+  sparklerHug: sparklerHug.url,
+  pinkpair: pinkpair.url,
+  rosePropose: rosePropose.url,
+  sparklers: sparklers.url,
+  blueSky: blueSky.url,
+  cherryTouch: cherryTouch.url,
+  umbrellaKneel: umbrellaKneel.url,
 };
 
-export const ALL_PHOTOS = [
-  photos.cafe,
-  photos.hug,
-  photos.stars,
-  photos.sunset,
-  photos.beachDance,
-  photos.hands,
-  photos.beachTwirl,
-  photos.field,
-  photos.fists,
-  photos.bluehug,
-  photos.umbrella,
-  photos.coathug,
-  photos.cherry,
-  photos.pinktee,
-  photos.sweaters,
-  photos.kiss,
-  photos.rose,
-];
+export const ALL_PHOTOS = Object.values(photos);
