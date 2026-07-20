@@ -35,7 +35,7 @@ const MEMORIES = [
 function Universe() {
   const [picked, setPicked] = useState<string | null>(null);
   return (
-    <SceneLayout particles="stars">
+    <SceneLayout particles="stars" bg={photos.stars} bgOpacity={0.5}>
       <PageTitle kicker="ten years, infinite emotions" title="Our World ✨" subtitle="Every star is a memory. Tap one to remember." />
       <div className="relative max-w-5xl mx-auto h-[560px] glass-rose rounded-3xl overflow-hidden">
         <img src={photos.stars} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-40" />

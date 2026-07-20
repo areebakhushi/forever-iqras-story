@@ -6,7 +6,7 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/surprises")({
   head: () => ({ meta: [{ title: "Surprises 🎁 — For Iqra" }] }),
   component: () => (
-    <SceneLayout particles="hearts">
+    <SceneLayout particles="hearts" bg={photos.umbrellaKneel}>
       <PageTitle kicker="for your smile" title="Surprises For Each Other 🎁" subtitle="Handmade gifts. Secret plans. Decorated rooms. All for one smile." />
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="flex justify-center my-8">

@@ -6,7 +6,7 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/beginning")({
   head: () => ({ meta: [{ title: "Where It All Started ❤ — For Iqra" }] }),
   component: () => (
-    <SceneLayout particles="petals">
+    <SceneLayout particles="petals" bg={photos.cafe}>
       <PageTitle kicker="age 12" title="Where it all started" subtitle="Two cousins by blood. Two best friends by heart." />
       <div className="max-w-4xl mx-auto space-y-8">
         <PhotoHero src={photos.cafe} alt="Us together at the cafe" caption="the very first us ✨" />

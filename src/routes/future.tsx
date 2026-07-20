@@ -7,7 +7,7 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/future")({
   head: () => ({ meta: [{ title: "Our Future 🌟 — Forever Connected" }] }),
   component: () => (
-    <SceneLayout particles="hearts">
+    <SceneLayout particles="hearts" bg={photos.sunset}>
       <PageTitle kicker="even if life separates us" title="Our Future 🌟" subtitle="Two paths. One heart. Forever connected." />
       <div className="max-w-4xl mx-auto">
         <PhotoHero src={photos.sunset} alt="Sunset together" caption="every sunset, still us" />

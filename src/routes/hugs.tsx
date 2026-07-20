@@ -6,7 +6,7 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/hugs")({
   head: () => ({ meta: [{ title: "Hug Scenes 🤍 — For Iqra" }] }),
   component: () => (
-    <SceneLayout particles="hearts">
+    <SceneLayout particles="hearts" bg={photos.bluehug}>
       <PageTitle kicker="no words needed" title="Just a hug was enough 🤍" />
       <div className="max-w-4xl mx-auto">
         <PhotoHero src={photos.hug} alt="Us hugging" caption="my safe place 🤍" />

@@ -6,7 +6,7 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/playing")({
   head: () => ({ meta: [{ title: "Playing & Laughing 😂 — Iqra" }] }),
   component: () => (
-    <SceneLayout particles="sparkles">
+    <SceneLayout particles="sparkles" bg={photos.beachTwirl}>
       <PageTitle kicker="laughing till we cried" title="We built happiness together" subtitle="Pillow fights. Silly games. Inside jokes only we understood." />
       <div className="max-w-4xl mx-auto space-y-6">
         <PhotoHero src={photos.beachTwirl} alt="Twirling on the beach" caption="dancing through life" />
