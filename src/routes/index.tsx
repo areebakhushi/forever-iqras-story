@@ -54,8 +54,8 @@ function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="fixed inset-0 -z-10">
-        <img src={photos.stars} alt="" aria-hidden className="w-full h-full object-cover opacity-45" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background" />
+        <img src={photos.sparklerHug} alt="" aria-hidden className="w-full h-full object-cover opacity-55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
       </div>
       <Stars count={140} />
       <Particles variant="mixed" count={36} />
@@ -115,23 +115,23 @@ function Home() {
                 transition={{ delay: 0.6, type: "spring", stiffness: 80 }}
                 className="text-6xl md:text-8xl mb-4"
               >
-                🎂
+                ✨
               </motion.div>
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                className="font-script text-2xl md:text-3xl text-gradient-rose mb-3"
+                className="font-script text-2xl md:text-3xl text-gradient-rose mb-3 tracking-wide"
               >
-                Happy 22nd Birthday
+                a decade of us
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.3, duration: 1 }}
-                className="font-display text-7xl md:text-[10rem] font-bold text-gradient leading-none mb-6"
+                className="font-display text-5xl md:text-8xl font-bold text-gradient leading-[0.95] mb-6 tracking-tight"
               >
-                IQRA
+                10 Years of<br />Best Friendship
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -139,7 +139,7 @@ function Home() {
                 transition={{ delay: 1.8, duration: 1 }}
                 className="font-script text-2xl md:text-4xl text-foreground/90 italic leading-relaxed"
               >
-                meri jaan, my love, my bestee ❤
+                for you, Iqra — meri jaan, my forever ❤
               </motion.p>
 
               <motion.div
@@ -150,9 +150,9 @@ function Home() {
               >
                 <Heart className="w-8 h-8 mx-auto mb-4 fill-current animate-heartbeat" style={{ color: "oklch(0.78 0.17 12)" }} />
                 <p className="font-display text-xl md:text-2xl italic leading-relaxed text-foreground/95">
-                  "You are not just a person in my life…<br />
-                  You are my memory, my comfort, my childhood,<br />
-                  my forever."
+                  "Ten years, Iqra.<br />
+                  A thousand memories, a million laughs,<br />
+                  and one forever bond."
                 </p>
               </motion.div>
 
@@ -163,9 +163,9 @@ function Home() {
                 className="mt-12 grid grid-cols-3 gap-3 md:gap-5 max-w-2xl mx-auto"
               >
                 {[
-                  { src: photos.cafe, r: -4 },
-                  { src: photos.hug, r: 2 },
-                  { src: photos.sunset, r: -2 },
+                  { src: photos.sparklers, r: -4 },
+                  { src: photos.pinkpair, r: 2 },
+                  { src: photos.cherryTouch, r: -2 },
                 ].map((p, i) => (
                   <motion.div
                     key={i}
