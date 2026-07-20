@@ -13,18 +13,17 @@ export const Route = createFileRoute("/future")({
         <PhotoHero src={photos.sunset} alt="Sunset together" caption="every sunset, still us" />
         <Reveal>
           <div className="glass-rose rounded-3xl p-10 md:p-14 my-8 relative overflow-hidden">
-            <div className="flex justify-between items-center relative h-32">
-              <motion.div animate={{ x: [0, -40, 0] }} transition={{ duration: 6, repeat: Infinity }} className="text-6xl">👩🏻</motion.div>
+            <div className="grid grid-cols-2 gap-4 items-center relative">
+              <PhotoFrame src={photos.blueSky} alt="reaching for you" rotate={-3} caption="reaching for you" className="w-full" />
+              <PhotoFrame src={photos.cherryTouch} alt="soft as spring" rotate={3} caption="soft as spring" className="w-full" />
               <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl z-10"
                 animate={{ scale: [1, 1.25, 1] }}
                 transition={{ duration: 1.4, repeat: Infinity }}
                 style={{ filter: "drop-shadow(0 0 30px oklch(0.78 0.17 12))" }}
               >
                 💗
               </motion.div>
-              <motion.div animate={{ x: [0, 40, 0] }} transition={{ duration: 6, repeat: Infinity }} className="text-6xl">👩🏽</motion.div>
-              <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-rose to-transparent" />
             </div>
             <p className="font-script text-3xl md:text-4xl text-gradient-rose text-center mt-8">
               "Even if life separates us… our hearts will always stay connected."

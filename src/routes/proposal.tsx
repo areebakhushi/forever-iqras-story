@@ -40,32 +40,17 @@ function Proposal() {
     <SceneLayout particles="butterflies">
       <PageTitle kicker="my dearest" title="Friendship Proposal 💖" subtitle="Will you stay my forever person?" />
       <div className="max-w-3xl mx-auto">
-        <PhotoHero src={photos.hands} alt="Our hands together" caption="my hand, in yours, always" />
+        <PhotoHero src={photos.rosePropose} alt="Proposing with a rose" caption="a rose, on one knee, for you" />
         <Reveal>
           <div className="glass-rose rounded-3xl p-10 md:p-14 relative overflow-hidden">
-            <div className="flex justify-center items-end gap-8 mb-8">
+            <div className="flex justify-center mb-8">
               <motion.div
-                initial={{ y: 0 }}
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 2.4, repeat: Infinity }}
-                className="text-7xl"
+                className="text-6xl"
+                style={{ filter: "drop-shadow(0 0 20px oklch(0.78 0.17 12 / 0.6))" }}
               >
                 🌹
-              </motion.div>
-              <motion.div
-                initial={{ rotate: 0 }}
-                animate={{ rotate: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="text-8xl"
-              >
-                🙇‍♀️
-              </motion.div>
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-8xl self-start"
-              >
-                😲
               </motion.div>
             </div>
 
