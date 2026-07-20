@@ -10,8 +10,8 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Happy 22nd Birthday Iqra ❤" },
-      { name: "description", content: "A surprise gift, a love letter in motion — for my cousin, my best friend, my forever person." },
+      { title: "10 Years of Best Friendship — For Iqra ❤" },
+      { name: "description", content: "A decade of us. A cinematic love letter — for Iqra, my cousin, my best friend, my forever person." },
     ],
   }),
   component: Home,
@@ -79,7 +79,7 @@ function Home() {
                 transition={{ duration: 3, repeat: Infinity }}
                 className="font-script text-3xl md:text-4xl text-gradient-rose mb-8"
               >
-                Someone Special Has a Surprise…
+                A little something, ten years in the making…
               </motion.p>
 
               <motion.button

@@ -10,15 +10,15 @@ export const Route = createFileRoute("/birthdays")({
 });
 
 const GALLERY = [
-  { src: photos.sweaters, cap: "silly us", r: -4 },
-  { src: photos.pinktee, cap: "school days", r: 3 },
-  { src: photos.kiss, cap: "night walks", r: -2 },
-  { src: photos.cherry, cap: "spring", r: 2 },
+  { src: photos.sparklers, cap: "sparkler nights", r: -4 },
+  { src: photos.pinkpair, cap: "school days", r: 3 },
+  { src: photos.sparklerHug, cap: "lit up by you", r: -2 },
+  { src: photos.cherryTouch, cap: "soft as spring", r: 2 },
   { src: photos.coathug, cap: "warm hugs", r: -3 },
   { src: photos.bluehug, cap: "hold me", r: 4 },
-  { src: photos.umbrella, cap: "rain & you", r: -2 },
-  { src: photos.fists, cap: "you & me vs world", r: 3 },
-  { src: photos.rose, cap: "a rose for you", r: -4 },
+  { src: photos.umbrellaKneel, cap: "rain & you", r: -2 },
+  { src: photos.blueSky, cap: "you & me vs world", r: 3 },
+  { src: photos.rosePropose, cap: "a rose for you", r: -4 },
 ];
 
 function TenYears() {
