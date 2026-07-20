@@ -49,17 +49,40 @@ export function SceneLayout({
   children,
   particles = "mixed",
   showStars = true,
+  bg,
+  bgOpacity = 0.35,
 }: {
   children: ReactNode;
   particles?: "hearts" | "petals" | "stars" | "butterflies" | "sparkles" | "mixed" | "none";
   showStars?: boolean;
+  bg?: string;
+  bgOpacity?: number;
 }) {
   return (
     <div className="relative min-h-screen w-full">
+      {bg && (
+        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+          <img
+            src={bg}
+            alt=""
+            aria-hidden
+            className="w-full h-full object-cover scale-110 blur-[2px]"
+            style={{ opacity: bgOpacity }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background/85" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.15_0.04_320/0.4)_100%)]" />
+        </div>
+      )}
       {showStars && <Stars count={100} />}
       {particles !== "none" && <Particles variant={particles} count={28} />}
       <Nav />
-      <main className="relative z-10 pt-24 pb-32 px-4">{children}</main>
+      <main className="relative z-10 pt-24 pb-32 px-4">
+        <div className="mx-auto max-w-7xl">
+          <div className="glass rounded-[2rem] px-4 md:px-8 py-8 md:py-12 border border-white/10 shadow-[0_40px_120px_-30px_oklch(0.15_0.04_320/0.8)]">
+            {children}
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
