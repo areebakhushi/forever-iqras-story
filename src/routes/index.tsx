@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Gift, Heart, Sparkles } from "lucide-react";
-import { Particles, Stars } from "@/components/Particles";
+import { Particles } from "@/components/Particles";
 import { Nav } from "@/components/SceneLayout";
 import { Link } from "@tanstack/react-router";
 import { photos } from "@/lib/photos";
@@ -10,7 +9,7 @@ import { photos } from "@/lib/photos";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "10 Years of Best Friendship — For Iqra ❤" },
+      { title: "10 Years of Best Friendship — For Iqra" },
       { name: "description", content: "A decade of us. A cinematic love letter — for Iqra, my cousin, my best friend, my forever person." },
     ],
   }),
@@ -18,13 +17,13 @@ export const Route = createFileRoute("/")({
 });
 
 function Burst() {
-  const items = Array.from({ length: 80 }, (_, i) => i);
+  const items = Array.from({ length: 70 }, (_, i) => i);
   return (
     <div className="pointer-events-none fixed inset-0 z-30 flex items-center justify-center">
       {items.map((i) => {
         const angle = (i / items.length) * Math.PI * 2;
         const dist = 200 + Math.random() * 500;
-        const syms = ["❤", "🌸", "✨", "🎉", "🦋", "💖", "🌹"];
+        const syms = ["❤", "🌸", "✿", "❀", "🦋", "💗", "🌹"];
         return (
           <motion.span
             key={i}
@@ -33,12 +32,12 @@ function Burst() {
               x: Math.cos(angle) * dist,
               y: Math.sin(angle) * dist,
               opacity: 0,
-              scale: 1.5,
+              scale: 1.4,
               rotate: Math.random() * 720,
             }}
             transition={{ duration: 2 + Math.random(), ease: "easeOut" }}
-            className="absolute text-3xl"
-            style={{ filter: "drop-shadow(0 0 8px rgba(255,180,220,0.9))" }}
+            className="absolute text-2xl"
+            style={{ color: "#c45c7c" }}
           >
             {syms[i % syms.length]}
           </motion.span>
@@ -52,148 +51,174 @@ function Home() {
   const [opened, setOpened] = useState(false);
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div className="fixed inset-0 -z-10">
-        <img src={photos.sparklerHug} alt="" aria-hidden className="w-full h-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
-      </div>
-      <Stars count={140} />
-      <Particles variant="mixed" count={36} />
+    <div className="relative min-h-screen overflow-hidden bg-[color:var(--cream)]">
+      <Particles variant="petals" count={16} />
       <Nav />
 
       <AnimatePresence>{opened && <Burst key="burst" />}</AnimatePresence>
 
-      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-20">
-        <AnimatePresence mode="wait">
-          {!opened ? (
-            <motion.div
-              key="gift"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 1.3 }}
-              transition={{ duration: 1 }}
-              className="text-center"
-            >
-              <motion.p
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="font-script text-3xl md:text-4xl text-gradient-rose mb-8"
-              >
-                A little something, ten years in the making…
-              </motion.p>
-
-              <motion.button
-                onClick={() => setOpened(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{ y: [0, -12, 0] }}
-                transition={{ y: { duration: 2.5, repeat: Infinity, ease: "easeInOut" } }}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-aurora blur-3xl opacity-60 rounded-full animate-glow-pulse" />
-                <div className="relative glass-rose rounded-3xl p-16 md:p-20">
-                  <Gift className="w-32 h-32 md:w-44 md:h-44 text-gradient-rose mx-auto" strokeWidth={1.2} style={{ color: "oklch(0.85 0.14 12)" }} />
-                </div>
-                <div className="mt-8 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-aurora text-primary-foreground font-medium shadow-lg">
-                  <Sparkles className="w-4 h-4" />
-                  Tap to open your gift
-                  <Sparkles className="w-4 h-4" />
-                </div>
-              </motion.button>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="reveal"
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, delay: 0.4 }}
-              className="text-center max-w-4xl"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.6, type: "spring", stiffness: 80 }}
-                className="text-6xl md:text-8xl mb-4"
-              >
-                ✨
-              </motion.div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="font-script text-2xl md:text-3xl text-gradient-rose mb-3 tracking-wide"
-              >
-                a decade of us
-              </motion.p>
-              <motion.h1
+      <main className="relative z-10 pt-36 md:pt-40 pb-20 px-4 md:px-8">
+        <div className="mx-auto max-w-6xl">
+          <AnimatePresence mode="wait">
+            {!opened ? (
+              <motion.section
+                key="gift"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.3, duration: 1 }}
-                className="font-display text-5xl md:text-8xl font-bold text-gradient leading-[0.95] mb-6 tracking-tight"
+                exit={{ opacity: 0, scale: 1.05 }}
+                transition={{ duration: 1 }}
+                className="paper rounded-sm overflow-hidden grid md:grid-cols-2"
               >
-                10 Years of<br />Best Friendship
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.8, duration: 1 }}
-                className="font-script text-2xl md:text-4xl text-foreground/90 italic leading-relaxed"
-              >
-                for you, Iqra — meri jaan, my forever ❤
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.4, duration: 1 }}
-                className="glass-rose rounded-3xl p-8 md:p-10 mt-12 max-w-2xl mx-auto"
-              >
-                <Heart className="w-8 h-8 mx-auto mb-4 fill-current animate-heartbeat" style={{ color: "oklch(0.78 0.17 12)" }} />
-                <p className="font-display text-xl md:text-2xl italic leading-relaxed text-foreground/95">
-                  "Ten years, Iqra.<br />
-                  A thousand memories, a million laughs,<br />
-                  and one forever bond."
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.8, duration: 1.2 }}
-                className="mt-12 grid grid-cols-3 gap-3 md:gap-5 max-w-2xl mx-auto"
-              >
-                {[
-                  { src: photos.sparklers, r: -4 },
-                  { src: photos.pinkpair, r: 2 },
-                  { src: photos.cherryTouch, r: -2 },
-                ].map((p, i) => (
+                {/* Editorial photo panel */}
+                <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[620px] overflow-hidden">
+                  <img
+                    src={photos.sparklerHug}
+                    alt="Ten years of us"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--plum)]/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 text-white">
+                    <p className="kicker text-white/90 mb-2">Cover Story</p>
+                    <p className="font-editorial text-xl md:text-2xl leading-tight">
+                      "A single soul dwelling in two bodies."
+                    </p>
+                  </div>
+                  {/* floating polaroid */}
                   <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.06, rotate: 0 }}
-                    style={{ rotate: `${p.r}deg` }}
-                    className="p-2 bg-white/90 rounded-sm shadow-2xl"
+                    animate={{ y: [0, -8, 0], rotate: [6, 4, 6] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="hidden md:block absolute top-8 right-8 w-28 bg-white p-2 pb-6 shadow-2xl rotate-6"
                   >
-                    <img src={p.src} alt="us" className="w-full aspect-[3/4] object-cover" />
+                    <img src={photos.cherryTouch} alt="" className="w-full aspect-square object-cover" />
+                    <p className="text-center text-[10px] mt-1 font-editorial text-[color:var(--plum)]">always</p>
                   </motion.div>
-                ))}
-              </motion.div>
+                </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 3.2, duration: 1 }}
-                className="mt-10 flex flex-wrap gap-3 justify-center"
+                {/* Editorial text panel */}
+                <div className="p-8 md:p-14 flex flex-col justify-center">
+                  <p className="kicker mb-6">A decade of devotion · Est. 2014</p>
+                  <h1 className="font-display text-5xl md:text-7xl leading-[0.9] text-[color:var(--plum)] mb-6">
+                    10 Years<br />
+                    <span className="italic text-[color:var(--rose)]">of Best Friendship</span>
+                  </h1>
+                  <div className="hairline w-16 mb-6" />
+                  <p className="font-editorial text-lg md:text-xl text-[color:var(--ink)]/75 leading-relaxed mb-10">
+                    A curated anthology of whispered secrets, quiet Tuesdays, and every laugh in between — ten beautiful years, opened by you.
+                  </p>
+
+                  <motion.button
+                    onClick={() => setOpened(true)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group self-start relative"
+                  >
+                    <span className="inline-flex items-center gap-4 px-8 py-4 bg-[color:var(--plum)] text-white text-[11px] tracking-[0.3em] uppercase font-semibold hover:bg-[color:var(--rose)] transition-colors">
+                      Tap to open your gift
+                      <span className="w-6 h-px bg-white group-hover:w-10 transition-all" />
+                    </span>
+                  </motion.button>
+
+                  <p className="kicker mt-10 opacity-60">Meri jaan · My forever person</p>
+                </div>
+              </motion.section>
+            ) : (
+              <motion.section
+                key="reveal"
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+                className="paper rounded-sm p-8 md:p-16"
               >
-                <Link to="/story" className="px-6 py-3 rounded-full bg-aurora text-primary-foreground font-medium shadow-lg hover:scale-105 transition-transform">
-                  Begin Our Story →
-                </Link>
-                <Link to="/proposal" className="px-6 py-3 rounded-full glass hover:bg-white/15 transition-colors">
-                  Friendship Proposal 💖
-                </Link>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <div className="text-center max-w-3xl mx-auto">
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                    className="kicker mb-8"
+                  >
+                    Ten years · 2014 — 2024
+                  </motion.p>
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1, duration: 1 }}
+                    className="font-display text-6xl md:text-9xl leading-[0.9] text-[color:var(--plum)] tracking-tight"
+                  >
+                    10 Years<br />
+                    <span className="italic text-[color:var(--rose)]">of Best Friendship</span>
+                  </motion.h1>
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "4rem" }}
+                    transition={{ delay: 1.6, duration: 0.8 }}
+                    className="h-px bg-[color:var(--plum)] mx-auto my-10"
+                  />
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.8, duration: 1 }}
+                    className="font-editorial text-2xl md:text-3xl text-[color:var(--ink)]/80 leading-relaxed"
+                  >
+                    for you, Iqra — meri jaan, my forever.
+                  </motion.p>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 2.4, duration: 1 }}
+                  className="mt-16 grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto"
+                >
+                  {[
+                    { src: photos.sparklers, r: -4 },
+                    { src: photos.pinkpair, r: 2 },
+                    { src: photos.cherryTouch, r: -2 },
+                  ].map((p, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.04, rotate: 0 }}
+                      style={{ rotate: `${p.r}deg` }}
+                      className="p-2 pb-6 bg-white shadow-xl border border-[color:var(--blush)]/40"
+                    >
+                      <img src={p.src} alt="us" className="w-full aspect-[3/4] object-cover" />
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                <motion.blockquote
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2.8, duration: 1 }}
+                  className="mt-16 max-w-2xl mx-auto text-center border-t border-b border-[color:var(--blush)]/70 py-10"
+                >
+                  <p className="font-editorial text-xl md:text-2xl text-[color:var(--ink)]/85 leading-relaxed">
+                    "Ten years. A thousand memories, a million laughs, and one forever bond."
+                  </p>
+                </motion.blockquote>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 3.2, duration: 1 }}
+                  className="mt-12 flex flex-wrap gap-3 justify-center"
+                >
+                  <Link
+                    to="/story"
+                    className="px-8 py-4 bg-[color:var(--plum)] text-white text-[11px] tracking-[0.3em] uppercase font-semibold hover:bg-[color:var(--rose)] transition-colors"
+                  >
+                    Begin Our Story
+                  </Link>
+                  <Link
+                    to="/proposal"
+                    className="px-8 py-4 border border-[color:var(--plum)] text-[color:var(--plum)] text-[11px] tracking-[0.3em] uppercase font-semibold hover:bg-[color:var(--plum)] hover:text-white transition-colors"
+                  >
+                    Friendship Proposal
+                  </Link>
+                </motion.div>
+              </motion.section>
+            )}
+          </AnimatePresence>
+        </div>
       </main>
     </div>
   );

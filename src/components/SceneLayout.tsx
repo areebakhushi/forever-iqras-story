@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
-import { Particles, Stars } from "./Particles";
-import { Heart } from "lucide-react";
+import { Particles } from "./Particles";
 
 const TABS = [
   { to: "/", label: "Home" },
@@ -22,24 +21,31 @@ const TABS = [
 
 export function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center gap-2 overflow-x-auto">
-        <Link to="/" className="flex items-center gap-2 shrink-0 mr-3">
-          <Heart className="w-5 h-5 fill-current text-rose animate-heartbeat" />
-          <span className="font-script text-xl text-gradient-rose">For Iqra</span>
-        </Link>
-        <div className="flex gap-1 items-center">
-          {TABS.map((t) => (
-            <Link
-              key={t.to}
-              to={t.to}
-              className="px-3 py-1.5 rounded-full text-xs whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors hover:bg-white/10"
-              activeProps={{ className: "px-3 py-1.5 rounded-full text-xs whitespace-nowrap bg-aurora text-primary-foreground font-medium" }}
-            >
-              {t.label}
-            </Link>
-          ))}
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[color:var(--cream)]/85 backdrop-blur-xl border-b border-[color:var(--blush)]/60">
+      <div className="mx-auto max-w-7xl px-6 py-4">
+        {/* Masthead */}
+        <div className="flex items-end justify-between border-b border-[color:var(--blush)]/60 pb-3 mb-3">
+          <span className="kicker hidden md:inline">Vol. X · Issue 01</span>
+          <Link to="/" className="font-display italic text-2xl md:text-3xl text-[color:var(--plum)] tracking-tight leading-none">
+            For Iqra
+          </Link>
+          <span className="kicker hidden md:inline">Friendship Edition</span>
         </div>
+        {/* Index tabs */}
+        <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[10px] md:text-[11px] tracking-[0.22em] uppercase font-semibold text-[color:var(--rose)] overflow-x-auto">
+          {TABS.map((t, i) => (
+            <li key={t.to} className="whitespace-nowrap flex items-center gap-1.5">
+              <span className="text-[9px] opacity-50">{String(i + 1).padStart(2, "0")}</span>
+              <Link
+                to={t.to}
+                className="hover:text-[color:var(--plum)] transition-colors"
+                activeProps={{ className: "text-[color:var(--plum)] border-b border-[color:var(--plum)] pb-0.5" }}
+              >
+                {t.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );
@@ -48,9 +54,9 @@ export function Nav() {
 export function SceneLayout({
   children,
   particles = "mixed",
-  showStars = true,
+  showStars: _showStars = true,
   bg,
-  bgOpacity = 0.35,
+  bgOpacity = 0.5,
 }: {
   children: ReactNode;
   particles?: "hearts" | "petals" | "stars" | "butterflies" | "sparkles" | "mixed" | "none";
@@ -59,27 +65,28 @@ export function SceneLayout({
   bgOpacity?: number;
 }) {
   return (
-    <div className="relative min-h-screen w-full">
+    <div className="relative min-h-screen w-full bg-[color:var(--cream)]">
       {bg && (
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
           <img
             src={bg}
             alt=""
             aria-hidden
-            className="w-full h-full object-cover scale-110 blur-[2px]"
+            className="w-full h-full object-cover scale-105"
             style={{ opacity: bgOpacity }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background/85" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.15_0.04_320/0.4)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cream)]/70 via-[color:var(--cream)]/40 to-[color:var(--cream)]/90" />
         </div>
       )}
-      {showStars && <Stars count={100} />}
-      {particles !== "none" && <Particles variant={particles} count={28} />}
+      {particles !== "none" && <Particles variant={particles} count={18} />}
       <Nav />
-      <main className="relative z-10 pt-24 pb-32 px-4">
-        <div className="mx-auto max-w-7xl">
-          <div className="glass rounded-[2rem] px-4 md:px-8 py-8 md:py-12 border border-white/10 shadow-[0_40px_120px_-30px_oklch(0.15_0.04_320/0.8)]">
+      <main className="relative z-10 pt-36 md:pt-40 pb-32 px-4 md:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="paper rounded-sm px-6 md:px-14 py-10 md:py-16">
             {children}
+          </div>
+          <div className="mt-8 text-center kicker opacity-70">
+            A Decade of Shared Memories · 2014 — 2024
           </div>
         </div>
       </main>
@@ -113,13 +120,18 @@ export function SceneCard({
 }) {
   return (
     <Reveal>
-      <div className="glass-rose rounded-3xl p-8 md:p-12 my-8 relative overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-aurora opacity-30 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-aurora opacity-20 blur-3xl" />
-        <div className="relative">
-          {emoji && <div className="text-5xl mb-4">{emoji}</div>}
-          <h3 className="font-display text-3xl md:text-4xl text-gradient-rose mb-4">{title}</h3>
-          <p className="font-script text-2xl md:text-3xl text-foreground/90 leading-relaxed italic">{quote}</p>
+      <div className="my-10 grid md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-start border-t border-[color:var(--blush)]/70 pt-10">
+        <div className="flex items-center gap-3">
+          {emoji && <div className="text-3xl">{emoji}</div>}
+          <span className="kicker">Chapter</span>
+        </div>
+        <div>
+          <h3 className="font-display text-3xl md:text-5xl text-[color:var(--plum)] leading-tight mb-4">
+            {title}
+          </h3>
+          <p className="font-editorial text-xl md:text-2xl text-[color:var(--ink)]/80 leading-relaxed">
+            "{quote}"
+          </p>
           {children}
         </div>
       </div>
@@ -129,21 +141,21 @@ export function SceneCard({
 
 export function PageTitle({ kicker, title, subtitle }: { kicker?: string; title: string; subtitle?: string }) {
   return (
-    <div className="text-center max-w-4xl mx-auto pt-8 pb-12">
+    <div className="text-center max-w-4xl mx-auto pt-4 pb-14 border-b border-[color:var(--blush)]/70">
       {kicker && (
         <motion.p
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-script text-2xl text-gradient-rose mb-3"
+          className="kicker mb-6"
         >
           {kicker}
         </motion.p>
       )}
       <motion.h1
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="font-display text-5xl md:text-7xl font-bold text-gradient leading-tight"
+        className="font-display text-6xl md:text-8xl text-[color:var(--plum)] leading-[0.95] tracking-tight"
       >
         {title}
       </motion.h1>
@@ -151,8 +163,8 @@ export function PageTitle({ kicker, title, subtitle }: { kicker?: string; title:
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+          transition={{ delay: 0.4, duration: 1 }}
+          className="mt-6 font-editorial text-xl md:text-2xl text-[color:var(--ink)]/70 max-w-2xl mx-auto"
         >
           {subtitle}
         </motion.p>

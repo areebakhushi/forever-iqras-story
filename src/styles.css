@@ -30,49 +30,52 @@
   --color-ring: var(--ring);
   --color-rose: var(--rose);
   --color-blush: var(--blush);
-  --color-lavender: var(--lavender);
-  --color-gold: var(--gold);
-  --color-ivory: var(--ivory);
-  --color-night: var(--night);
-  --font-display: "Playfair Display", "Cormorant Garamond", serif;
-  --font-script: "Dancing Script", "Great Vibes", cursive;
-  --font-sans: "Outfit", "Inter", sans-serif;
+  --color-cream: var(--cream);
+  --color-plum: var(--plum);
+  --color-ink: var(--ink);
+  --font-display: "Instrument Serif", "Cormorant Garamond", serif;
+  --font-script: "Instrument Serif", serif;
+  --font-sans: "Work Sans", "Inter", sans-serif;
 }
 
 :root {
-  --radius: 1rem;
-  --background: oklch(0.16 0.04 320);
-  --foreground: oklch(0.97 0.02 340);
-  --card: oklch(0.22 0.05 320 / 60%);
-  --card-foreground: oklch(0.97 0.02 340);
-  --popover: oklch(0.2 0.05 320);
-  --popover-foreground: oklch(0.97 0.02 340);
-  --primary: oklch(0.82 0.14 350);
-  --primary-foreground: oklch(0.15 0.04 320);
-  --secondary: oklch(0.78 0.1 300);
-  --secondary-foreground: oklch(0.15 0.04 320);
-  --muted: oklch(0.3 0.04 320 / 50%);
-  --muted-foreground: oklch(0.82 0.04 340);
-  --accent: oklch(0.88 0.13 80);
-  --accent-foreground: oklch(0.15 0.04 320);
+  --radius: 0.25rem;
+
+  /* Cherry Blossom editorial palette */
+  --cream: #fef0f5;
+  --blush: #f8c8d8;
+  --rose: #e88aab;
+  --plum: #c45c7c;
+  --ink: #4a1e2c;
+
+  --background: #fef0f5;
+  --foreground: #4a1e2c;
+
+  --card: #ffffff;
+  --card-foreground: #4a1e2c;
+  --popover: #ffffff;
+  --popover-foreground: #4a1e2c;
+
+  --primary: #c45c7c;
+  --primary-foreground: #ffffff;
+  --secondary: #f8c8d8;
+  --secondary-foreground: #4a1e2c;
+
+  --muted: #fbe0e8;
+  --muted-foreground: #9a5670;
+  --accent: #e88aab;
+  --accent-foreground: #ffffff;
+
   --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.97 0 0);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.82 0.14 350);
+  --destructive-foreground: #ffffff;
+  --border: #f8c8d8;
+  --input: #f8c8d8;
+  --ring: #c45c7c;
 
-  --rose: oklch(0.78 0.17 12);
-  --blush: oklch(0.88 0.08 350);
-  --lavender: oklch(0.78 0.1 300);
-  --gold: oklch(0.88 0.13 80);
-  --ivory: oklch(0.97 0.02 90);
-  --night: oklch(0.12 0.04 300);
-
-  --gradient-aurora: linear-gradient(135deg, oklch(0.78 0.17 12) 0%, oklch(0.78 0.1 300) 50%, oklch(0.88 0.13 80) 100%);
-  --gradient-night: radial-gradient(ellipse at top, oklch(0.25 0.08 320) 0%, oklch(0.1 0.04 300) 70%);
-  --gradient-rose: linear-gradient(135deg, oklch(0.85 0.14 12), oklch(0.78 0.12 340));
-  --shadow-glow: 0 0 60px oklch(0.82 0.14 350 / 0.5), 0 0 120px oklch(0.78 0.1 300 / 0.3);
-  --shadow-soft: 0 20px 60px -20px oklch(0.1 0.04 300 / 0.6);
+  --gradient-rose: linear-gradient(135deg, #f8c8d8 0%, #e88aab 60%, #c45c7c 100%);
+  --gradient-cream: linear-gradient(180deg, #fef0f5 0%, #fbe0e8 100%);
+  --shadow-soft: 0 30px 80px -30px rgba(196, 92, 124, 0.25);
+  --shadow-lift: 0 40px 100px -20px rgba(196, 92, 124, 0.18);
 }
 
 @layer base {
@@ -80,51 +83,89 @@
     border-color: var(--color-border);
   }
   html, body {
-    background: var(--gradient-night);
-    color: var(--color-foreground);
+    background: var(--cream);
+    color: var(--ink);
     font-family: var(--font-sans);
+    font-weight: 400;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
 @utility font-display {
   font-family: var(--font-display);
+  font-weight: 400;
 }
 @utility font-script {
-  font-family: var(--font-script);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
 }
+@utility font-editorial {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* Editorial paper card — the magazine frame */
+@utility paper {
+  background: #ffffff;
+  border: 1px solid rgba(196, 92, 124, 0.12);
+  box-shadow: var(--shadow-lift);
+}
+@utility paper-tinted {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Legacy names kept so existing scenes still render */
 @utility glass {
-  background: oklch(1 0 0 / 0.07);
-  backdrop-filter: blur(20px);
-  border: 1px solid oklch(1 0 0 / 0.15);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: var(--shadow-soft);
 }
 @utility glass-rose {
-  background: linear-gradient(135deg, oklch(0.85 0.14 12 / 0.18), oklch(0.78 0.1 300 / 0.12));
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(24px);
-  border: 1px solid oklch(1 0 0 / 0.2);
-  box-shadow: var(--shadow-glow);
+  border: 1px solid rgba(232, 138, 171, 0.25);
+  box-shadow: 0 30px 90px -30px rgba(196, 92, 124, 0.3);
 }
 @utility text-gradient {
-  background: var(--gradient-aurora);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-@utility text-gradient-rose {
   background: var(--gradient-rose);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+@utility text-gradient-rose {
+  background: linear-gradient(135deg, #c45c7c, #e88aab);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 @utility bg-aurora {
-  background: var(--gradient-aurora);
+  background: var(--gradient-rose);
+}
+
+/* Editorial masthead label */
+@utility kicker {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--plum);
+}
+@utility hairline {
+  height: 1px;
+  background: rgba(196, 92, 124, 0.25);
 }
 
 @keyframes float-up {
   0% { transform: translateY(100vh) translateX(0) rotate(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.9; }
   100% { transform: translateY(-10vh) translateX(40px) rotate(360deg); opacity: 0; }
 }
 @keyframes twinkle {
@@ -141,8 +182,8 @@
   100% { background-position: 200% 0; }
 }
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 40px oklch(0.82 0.14 350 / 0.4); }
-  50% { box-shadow: 0 0 80px oklch(0.82 0.14 350 / 0.8), 0 0 140px oklch(0.78 0.1 300 / 0.5); }
+  0%, 100% { box-shadow: 0 0 40px rgba(232, 138, 171, 0.35); }
+  50% { box-shadow: 0 0 90px rgba(232, 138, 171, 0.6), 0 0 140px rgba(248, 200, 216, 0.5); }
 }
 @keyframes drift {
   0% { transform: translate(0, 0); }

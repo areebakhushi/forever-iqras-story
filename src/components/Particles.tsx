@@ -34,9 +34,9 @@ export function Particles({ variant = "mixed", count = 30 }: { variant?: Variant
           style={{
             left: `${p.left}%`,
             fontSize: `${p.size}px`,
-            opacity: p.opacity,
+            opacity: p.opacity * 0.55,
+            color: "#c45c7c",
             animation: `float-up ${p.duration}s linear ${p.delay}s infinite`,
-            filter: "drop-shadow(0 0 6px rgba(255,180,220,0.7))",
           }}
         >
           {p.sym}
@@ -63,14 +63,15 @@ export function Stars({ count = 80 }: { count?: number }) {
       {stars.map((s) => (
         <span
           key={s.id}
-          className="absolute rounded-full bg-white animate-twinkle"
+          className="absolute rounded-full animate-twinkle"
           style={{
             top: `${s.top}%`,
             left: `${s.left}%`,
             width: `${s.size}px`,
             height: `${s.size}px`,
             animationDelay: `${s.delay}s`,
-            boxShadow: "0 0 6px white",
+            background: "#e88aab",
+            boxShadow: "0 0 6px rgba(232, 138, 171, 0.6)",
           }}
         />
       ))}
