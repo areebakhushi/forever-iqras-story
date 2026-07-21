@@ -56,7 +56,7 @@ export function SceneLayout({
   particles = "mixed",
   showStars: _showStars = true,
   bg,
-  bgOpacity = 0.5,
+  bgOpacity = 0.95,
 }: {
   children: ReactNode;
   particles?: "hearts" | "petals" | "stars" | "butterflies" | "sparkles" | "mixed" | "none";
@@ -75,17 +75,17 @@ export function SceneLayout({
             className="w-full h-full object-cover scale-105"
             style={{ opacity: bgOpacity }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cream)]/70 via-[color:var(--cream)]/40 to-[color:var(--cream)]/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cream)]/25 via-transparent to-[color:var(--cream)]/55" />
         </div>
       )}
       {particles !== "none" && <Particles variant={particles} count={18} />}
       <Nav />
       <main className="relative z-10 pt-36 md:pt-40 pb-32 px-4 md:px-8">
         <div className="mx-auto max-w-6xl">
-          <div className="paper rounded-sm px-6 md:px-14 py-10 md:py-16">
+          <div className="paper rounded-sm px-6 md:px-14 py-10 md:py-16 bg-[color:var(--cream)]/85 backdrop-blur-md shadow-2xl">
             {children}
           </div>
-          <div className="mt-8 text-center kicker opacity-70">
+          <div className="mt-8 text-center kicker opacity-80 text-[color:var(--cream)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
             A Decade of Shared Memories · 2014 — 2024
           </div>
         </div>
@@ -93,6 +93,7 @@ export function SceneLayout({
     </div>
   );
 }
+
 
 export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   return (
