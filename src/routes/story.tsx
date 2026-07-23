@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { SceneLayout, PageTitle, SceneCard, Reveal } from "@/components/SceneLayout";
+import { SceneLayout, SceneCard, Reveal } from "@/components/SceneLayout";
 import { PhotoFrame } from "@/components/Photo";
 import { photos, ALL_PHOTOS } from "@/lib/photos";
 
