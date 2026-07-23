@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { SceneLayout, PageTitle, SceneCard, Reveal } from "@/components/SceneLayout";
+import { SceneLayout, SceneCard, Reveal } from "@/components/SceneLayout";
 import { PhotoFrame } from "@/components/Photo";
 import { photos, ALL_PHOTOS } from "@/lib/photos";
 
@@ -57,12 +57,42 @@ function AgeCounter() {
 
 function Story() {
   return (
-    <SceneLayout particles="mixed" bg={photos.cherryTouch}>
-      <PageTitle
-        kicker="our friendship story"
-        title="From 12 to 22"
-        subtitle="A decade of laughter, love, late-night talks, and a thousand little memories we built together."
-      />
+    <SceneLayout particles="petals">
+      {/* Upper section hero with the cherry-touch image as background */}
+      <div className="relative -mx-6 md:-mx-14 -mt-10 md:-mt-16 mb-12 min-h-[58vh] md:min-h-[62vh] flex items-center justify-center overflow-hidden rounded-sm">
+        <img
+          src={photos.cherryTouch}
+          alt="Two friends under cherry blossoms"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cream)]/20 via-[color:var(--cream)]/40 to-[color:var(--cream)]" />
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="kicker mb-4 text-[color:var(--plum)]"
+          >
+            our friendship story
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="font-display text-6xl md:text-8xl text-[color:var(--plum)] leading-[0.95] tracking-tight drop-shadow-sm"
+          >
+            From 12 to 22
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 1 }}
+            className="mt-6 font-editorial text-xl md:text-2xl text-[color:var(--ink)]/80 max-w-2xl mx-auto"
+          >
+            A decade of laughter, love, late-night talks, and a thousand little memories we built together.
+          </motion.p>
+        </div>
+      </div>
+
       <div className="max-w-4xl mx-auto">
         <AgeCounter />
         <div className="space-y-6">
