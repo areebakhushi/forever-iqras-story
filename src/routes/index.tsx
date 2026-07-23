@@ -52,6 +52,19 @@ function Home() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[color:var(--cream)]">
+      {/* Full-bleed sweaters photo as home background */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <img
+          src={photos.sweaters}
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover object-[center_25%] scale-105"
+        />
+        <div className="absolute inset-0 bg-[color:var(--cream)]/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cream)]/55 via-transparent to-[color:var(--cream)]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--cream)]/40 via-transparent to-[color:var(--cream)]/40" />
+      </div>
+
       <Particles variant="petals" count={16} />
       <Nav />
 
