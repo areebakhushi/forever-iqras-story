@@ -232,6 +232,8 @@ function Home() {
                     Friendship Proposal
                   </Link>
                 </motion.div>
+                </motion.div>
+                </div>
               </motion.section>
             )}
           </AnimatePresence>
