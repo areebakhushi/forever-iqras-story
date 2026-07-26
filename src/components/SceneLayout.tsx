@@ -57,12 +57,14 @@ export function SceneLayout({
   showStars: _showStars = true,
   bg,
   bgOpacity = 0.95,
+  paperOpacity = 0.85,
 }: {
   children: ReactNode;
   particles?: "hearts" | "petals" | "stars" | "butterflies" | "sparkles" | "mixed" | "none";
   showStars?: boolean;
   bg?: string;
   bgOpacity?: number;
+  paperOpacity?: number;
 }) {
   return (
     <div className="relative min-h-screen w-full bg-[color:var(--cream)]">
@@ -82,7 +84,7 @@ export function SceneLayout({
       <Nav />
       <main className="relative z-10 pt-36 md:pt-40 pb-32 px-4 md:px-8">
         <div className="mx-auto max-w-6xl">
-          <div className="paper rounded-sm px-6 md:px-14 py-10 md:py-16 bg-[color:var(--cream)]/85 backdrop-blur-md shadow-2xl">
+          <div className="paper rounded-sm px-6 md:px-14 py-10 md:py-16 backdrop-blur-md shadow-2xl" style={{ backgroundColor: `color-mix(in srgb, var(--cream) ${paperOpacity * 100}%, transparent)` }}>
             {children}
           </div>
           <div className="mt-8 text-center kicker opacity-80 text-[color:var(--cream)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">

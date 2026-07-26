@@ -31,7 +31,7 @@ function StarName() {
 
 function Finale() {
   return (
-    <SceneLayout particles="mixed" bg={photos.stars} bgOpacity={0.55}>
+    <SceneLayout particles="mixed" bg={photos.coathug} bgOpacity={1} paperOpacity={0.7}>
       <PageTitle kicker="our final scene" title="Forever Us ❤" subtitle="Night sky. Soft piano. A letter that never ends." />
       <div className="max-w-3xl mx-auto">
         <StarName />
