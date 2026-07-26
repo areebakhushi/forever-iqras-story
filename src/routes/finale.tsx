@@ -59,7 +59,7 @@ function Finale() {
         </Reveal>
         <Reveal delay={0.4}>
           <p className="text-center mt-12 font-script text-2xl text-muted-foreground">
-            Happy 22nd Birthday, meri jaan. Always & forever — your bestee.
+            I love you, my sweetee. Always & forever — your bestee.
           </p>
         </Reveal>
       </div>
