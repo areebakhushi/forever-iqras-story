@@ -69,7 +69,7 @@ export function SceneLayout({
   return (
     <div className="relative min-h-screen w-full bg-[color:var(--cream)]">
       {bg && (
-        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
           <img
             src={bg}
             alt=""
