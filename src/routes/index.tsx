@@ -141,9 +141,9 @@ function Home() {
                 className="paper rounded-sm p-8 md:p-16 relative overflow-hidden"
               >
                 <div className="absolute inset-0 -z-0">
-                  <img src={photos.sparklers} alt="" aria-hidden className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-[color:var(--cream)]/70" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cream)]/50 via-[color:var(--cream)]/40 to-[color:var(--cream)]/80" />
+                  <img src={photos.sweatersPoke} alt="" aria-hidden className="w-full h-full object-cover object-top" />
+                  <div className="absolute inset-0 bg-[color:var(--cream)]/30" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cream)]/20 via-transparent to-[color:var(--cream)]/55" />
                 </div>
                 <div className="relative z-10">
                 <div className="text-center max-w-3xl mx-auto">

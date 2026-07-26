@@ -22,6 +22,7 @@ import sparklers from "@/assets/sparklers.jpg.asset.json";
 import blueSky from "@/assets/blue-sky.jpg.asset.json";
 import cherryTouch from "@/assets/cherry-touch.jpg.asset.json";
 import umbrellaKneel from "@/assets/umbrella-kneel.jpg.asset.json";
+import sweatersPoke from "@/assets/sweaters-poke.jpg.asset.json";
 
 export const photos = {
   cafe: cafe.url,
@@ -48,6 +49,7 @@ export const photos = {
   blueSky: blueSky.url,
   cherryTouch: cherryTouch.url,
   umbrellaKneel: umbrellaKneel.url,
+  sweatersPoke: sweatersPoke.url,
 };
 
 export const ALL_PHOTOS = Object.values(photos);
